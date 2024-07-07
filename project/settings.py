@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'items',
-
+    # 'jwt_auth',
 ]
+
+# AUTH_USER_MODEL = 'jwt_auth.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
