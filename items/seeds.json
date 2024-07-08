@@ -1,0 +1,38 @@
+[
+{
+  "model": "items.item",
+  "pk": 1,
+  "fields": {
+    "name": "Distressed Nadine Rug",
+    "shop": "West Elm",
+    "image": "https://www.westelm.co.uk/site/WE/Product%20Images/distressed-nadine-rug-t4876-202232-0071-distressed-nadine-rug-z.jpg"
+  }
+},
+{
+  "model": "items.item",
+  "pk": 2,
+  "fields": {
+    "name": "Squishbag Occasional Chair",
+    "shop": "Loaf",
+    "image": "https://content.cylindo.com/api/v2/4980/products/20497CHAIR-ARM/frames/4/squishbag-occasional-chair.jpg"
+  }
+},
+{
+  "model": "items.item",
+  "pk": 4,
+  "fields": {
+    "name": "testhello",
+    "shop": "test",
+    "image": "test"
+  }
+},
+{
+  "model": "items.item",
+  "pk": 5,
+  "fields": {
+    "name": "test1",
+    "shop": "test1",
+    "image": "test1"
+  }
+}
+]

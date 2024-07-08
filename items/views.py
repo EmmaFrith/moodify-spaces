@@ -1,6 +1,8 @@
 from rest_framework.views import APIView 
 from rest_framework.response import Response 
 from rest_framework import status 
+from rest_framework.exceptions import NotFound
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .models import Item
 from .serializers.common import ItemSerializer
 from rest_framework.exceptions import NotFound
@@ -8,6 +10,8 @@ from rest_framework.exceptions import NotFound
 
 
 class ItemListView(APIView):
+
+    permission_classes = (IsAuthenticatedOrReadOnly, )
 
     def get(self, _request):
         items = Item.objects.all()
