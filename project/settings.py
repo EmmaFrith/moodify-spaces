@@ -40,9 +40,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'items',
     'jwt_auth',
+    'corsheaders',
 ]
 
 AUTH_USER_MODEL = 'jwt_auth.User'
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -140,3 +145,4 @@ REST_FRAMEWORK = {
     'jwt_auth.authentication.JWTAuthentication'
     ],
 }
+
