@@ -11,7 +11,6 @@ class UserSerializer(serializers.ModelSerializer):
 
 
     def validate(self, data): 
-        print('DATA',data)
     
         password = data.pop('password')
         password_confirmation = data.pop('password_confirmation')
@@ -27,7 +26,6 @@ class UserSerializer(serializers.ModelSerializer):
 
         data['password'] = make_password(password)
 
-        print('DATA ->', data)
         return data
 
     class Meta:

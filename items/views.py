@@ -2,23 +2,23 @@ from rest_framework.views import APIView
 from rest_framework.response import Response 
 from rest_framework import status 
 from rest_framework.exceptions import NotFound
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated
 from .models import Item
 from .serializers.common import ItemSerializer
 from rest_framework.exceptions import NotFound
 
-
-
 class ItemListView(APIView):
 
-    permission_classes = (IsAuthenticatedOrReadOnly, )
+    permission_classes = (IsAuthenticated, )
 
-    def get(self, _request):
-        items = Item.objects.all()
+    def get(self, request):
+        logged_in_user = request.user.id
+        items = Item.objects.filter(owner=logged_in_user)
         serialized_items = ItemSerializer(items, many=True)
         return Response(serialized_items.data, status=status.HTTP_200_OK)
     
     def post(self, request):
+        request.data["owner"] = request.user.id
         item_to_add = ItemSerializer(data=request.data)
         try:
             item_to_add.is_valid()

@@ -6,3 +6,8 @@ class Item(models.Model):
   name = models.CharField(max_length=200)
   shop = models.CharField(max_length=200)
   image = models.CharField(max_length=400)
+  owner = models.ForeignKey(
+        'jwt_auth.User',
+        related_name="item",
+        on_delete=models.CASCADE
+    )
